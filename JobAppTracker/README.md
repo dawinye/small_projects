@@ -1,5 +1,5 @@
 First, create some labels that will act as statuses for how far you are in the recruitment cycle at a company. I did "Applied", "OAs/Interviewing", "Rejected", "Offers". 
-![image](https://user-images.githubusercontent.com/59813280/186082511-2f2347a2-8395-42e8-be61-203c6bcbea39.png)
+![image](https://user-images.githubusercontent.com/59813280/186082575-75ad4b10-dd91-4ec8-9a21-ab5509d2ceda.png)
 
 
 As you apply to companies and interview, drag the emails that you get from companies into the corresponding labels. 
