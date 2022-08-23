@@ -1,4 +1,6 @@
 First, create some labels that will act as statuses for how far you are in the recruitment cycle at a company. I did "Applied", "OAs/Interviewing", "Rejected", "Offers". 
+![image](https://user-images.githubusercontent.com/59813280/186082511-2f2347a2-8395-42e8-be61-203c6bcbea39.png)
+
 
 As you apply to companies and interview, drag the emails that you get from companies into the corresponding labels. 
 Then, create a new Google Spreadsheet and name the sheet something like "New Grad"
