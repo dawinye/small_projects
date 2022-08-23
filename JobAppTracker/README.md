@@ -1,4 +1,4 @@
-First, create some labels that will act as statuses for how far you are in the recruitment cycle at a company. 
+First, create some labels that will act as statuses for how far you are in the recruitment cycle at a company. Drag emails into those labels as you get further into the recruiting cycle.
 
 <img width="244" alt="Screen Shot 2022-08-22 at 11 07 20 PM" src="https://user-images.githubusercontent.com/59813280/186082674-784e8753-679a-48f2-96e3-5586bbd2094d.png">
 
