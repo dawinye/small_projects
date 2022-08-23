@@ -20,7 +20,10 @@ function refreshSheet() {
   const range = sheetLink.getRange(startRow, colNumber, numRows, numsCols);
   range.clear();
 
-  // 
+  // reordering the labels array so that I can determine which order the script iterates through them in
+  // I do this because I don't want to see a row about applying to company X if we have already been rejected
+  // by company X. Therefore the priority of emails tracked is Rejected -> Offers, OA/Interviewing -> Applied
+  
   const OA = labels[0]
   const Offers = labels[1]
   const Applied = labels[2]
@@ -30,7 +33,10 @@ function refreshSheet() {
   labels[2] = OA
   labels[3] = Applied
 
+  // using a set to avoid seeing multiple rows for one job application at one company
   var emails = new Set();
+  
+  // map to associate labels with colors, will be used for highlighting the color 
   var colorMap = new Map([
     ["Rejected", "red"],
     ["Offers", "green"],
@@ -52,7 +58,7 @@ function refreshSheet() {
           const subject = message.getSubject();
           const date = message.getDate();
           const email = message.getFrom();
-          // don't want to see emails under the applying label for company X when we're already in the interview process
+          // checks whether we've gotten an email from a company already, assumes you're applying to one position per company
           if (!emails.has(email)){
             sheetLink.getRange(sheetLink.getLastRow() + 1, 1, 1, 4).setValues([[date,subject,email,labelNames]]);
             sheetLink.getRange(sheetLink.getLastRow(),4).setBackground(colorMap.get(labelNames))
@@ -65,6 +71,8 @@ function refreshSheet() {
     }
     Sheets.Spreadsheets.Values.batchUpdate(resource, spreadsheetId);
   }
+  
+  //sort the sheet by most recent
   range.sort({column: 1, ascending: false});
   console.log("done")
 }
