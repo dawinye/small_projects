@@ -1,22 +1,23 @@
 function refreshSheet() {
   const data = []
-  const labelCheck = ["Applied", "Rejected", "OAs/Interviewing", "Offers"]
-  const spreadsheetId = "1i9jphrGzsCvX_o4byePWmNvy6w6dFwDGEoQ_lQKYvpQ"
-  const sheetName = "New Grad 2023"
+  const labelCheck = ["Applied", "Rejected", "OAs/Interviewing", "Offers"] //change this if your labels are different
+  const spreadsheetId = "" //enter your own id of the spreadsheet, appears after https://docs.google.com/spreadsheets/d/...
+  const sheetName = "" //enter the sheetname of the spreadsheet that you want to populate (on the bottom bar of sheets)
   const resource = {
     valueInputOption: "USER_ENTERED",
     data: data,
   };
   const sheetLink = SpreadsheetApp.openById(spreadsheetId).getSheetByName(sheetName)
   const labels = GmailApp.getUserLabels();
-  
+  //start row is 2 because first row should be Date, Subject, From, Status
+  //freeze the first row by clicking on it and doing View -> Freeze -> 1 Row
   const colNumber = 1
   const startRow = 2
 
   const numRows = sheetLink.getLastRow() - startRow + 1;
   const numCols = sheetLink.getLastColumn() - colNumber + 1;
-  console.log(labels)
-  const range = sheetLink.getRange(startRow, colNumber, 8, 8);
+  //console.log(labels)
+  const range = sheetLink.getRange(startRow, colNumber, numRows, numsCols);
   range.clear();
 
   // 
@@ -51,6 +52,7 @@ function refreshSheet() {
           const subject = message.getSubject();
           const date = message.getDate();
           const email = message.getFrom();
+          // don't want to see emails under the applying label for company X when we're already in the interview process
           if (!emails.has(email)){
             sheetLink.getRange(sheetLink.getLastRow() + 1, 1, 1, 4).setValues([[date,subject,email,labelNames]]);
             sheetLink.getRange(sheetLink.getLastRow(),4).setBackground(colorMap.get(labelNames))
