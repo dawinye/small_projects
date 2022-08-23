@@ -1,6 +1,9 @@
-First, create some labels that will act as statuses for how far you are in the recruitment cycle at a company. I did "Applied", "OAs/Interviewing", "Rejected", "Offers". 
+First, create some labels that will act as statuses for how far you are in the recruitment cycle at a company. 
 
 <img width="244" alt="Screen Shot 2022-08-22 at 11 07 20 PM" src="https://user-images.githubusercontent.com/59813280/186082674-784e8753-679a-48f2-96e3-5586bbd2094d.png">
+
+Click on the first row, which should be Date | Subject | From | Status
+<img width="678" alt="Screen Shot 2022-08-22 at 11 05 40 PM" src="https://user-images.githubusercontent.com/59813280/186082982-7e990b65-64b2-4b20-af03-639996185488.png">
 
 
 As you apply to companies and interview, drag the emails that you get from companies into the corresponding labels. 
